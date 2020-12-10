@@ -22,13 +22,13 @@
         <li class="nav-item"><a class="nav-link" href="{{ route('register') }}">注册</a></li>
         @else
         <li class="nav-item dropdown"><a class="nav-link dropdown" href="#" id="nav-Dropown" rol="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-        <img src="https://avatars3.githubusercontent.com/u/56815669?s=460&u=84b06bdabe9bae3e8f8c918356e8a58bfc152f85&v=4" class="img-responsive img-circle" width="30px" height="30px">
+        <img src="https://static001.geekbang.org/account/avatar/00/17/91/14/9d0066bf.jpg" class="img-responsive img-circle" width="30px" height="30px">
         {{ Auth::user()->name }}
         </a>
 
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-        <a class="dropdown-item" href="">个人中心</a>
-        <a class="dropdown-item" href="">编辑资料</a>
+        <a class="dropdown-item" href="{{ route('users.show',Auth::id() )}}">个人中心</a>
+        <a class="dropdown-item" href="{{ route('users.edit',Auth::id() )}}">编辑资料</a>
         <div class="drop-divider"></div>
         <a class="dropdown-item" id="logout" href="#">
           <form action="{{ route('logout') }}" method="POST">
