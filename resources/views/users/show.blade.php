@@ -8,7 +8,7 @@
 
 <div class="col-lg-3 col-md-3 hidden-xs user-infor">
 <div class="crad">
-    <img class="card-img-top" src="https://static001.geekbang.org/account/avatar/00/17/91/14/9d0066bf.jpg" alt="{{ $user->name }}">
+    <img class="card-img-top" src="{{ $user->avatar }}" alt="{{ $user->name }}">
     <div class="card-body">
       <h3><strong>个人简介</strong></h3>
       <p>{{ $user->introduction }}</p>

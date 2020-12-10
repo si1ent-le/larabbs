@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\User;
 use App\Http\Requests\UserRequest;
-use App\handlers\ImageUploadHandler;
+use App\Handlers\ImageUploadHandler;
 
 class UsersController extends Controller
 {
@@ -26,7 +26,7 @@ class UsersController extends Controller
         if ($request->avatar){
             $result = $uploader->save($request->avatar,'avatar',$user->id);
             if($result){
-                $data['avatart'] = $result['path'];
+                $data['avatar'] = $result['path'];
             }
         }
         $user->update($data);
