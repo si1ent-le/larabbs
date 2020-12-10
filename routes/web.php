@@ -14,6 +14,16 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', 'PagesController@root')->name('root');
+// 用户个人及个人资料修改路由
+Route::resource('users','UsersController',['only' => ['show','update','edit']]);
+
+/*
+以上代码等同于
+Route::get('/users/{user}','UsersController@show')->name('users.show);
+Route::get('/users/{user}/edit','UsersController@edit')->name('users.edit');
+Route::patch('/users/{user}','UsersController@update')->name('users.update');
+*/
+
 
 // 用户身份验证相关的路由:登录和退出功能
 Route::get('login', 'Auth\LoginController@showLoginForm')->name('login');
