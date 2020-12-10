@@ -11,10 +11,11 @@
     <img class="card-img-top" src="https://static001.geekbang.org/account/avatar/00/17/91/14/9d0066bf.jpg" alt="{{ $user->name }}">
     <div class="card-body">
       <h3><strong>个人简介</strong></h3>
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+      <p>{{ $user->introduction }}</p>
       <hr>
       <h5><strong>注册于</strong></h5>
-      <p>January 01 1901</p>
+      {{ dd($user->created_at) }}
+      <p>{{ $user->created_at->diffForHumans() }}</p>
     </div>
   </div>
 </div>
