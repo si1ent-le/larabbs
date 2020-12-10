@@ -22,7 +22,7 @@
         <li class="nav-item"><a class="nav-link" href="{{ route('register') }}">注册</a></li>
         @else
         <li class="nav-item dropdown"><a class="nav-link dropdown" href="#" id="nav-Dropown" rol="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-        <img src="https://static001.geekbang.org/account/avatar/00/17/91/14/9d0066bf.jpg" class="img-responsive img-circle" width="30px" height="30px">
+        <img src="{{ Auth::user()->avatar }}" class="img-responsive img-circle" width="30px" height="30px">
         {{ Auth::user()->name }}
         </a>
 
