@@ -32,4 +32,14 @@ class UsersController extends Controller
         $user->update($data);
         return redirect()->route('users.show',$user->id)->with('success','个人资料更新成功');
     }
+
+    //默认头像
+    public function getAvatarDefault($value)
+    {
+        if (empty($value))
+        {
+            return "https://avatars1.githubusercontent.com/u/56815669?s=60&v=4";
+        }
+        return $value;
+    }
 }
