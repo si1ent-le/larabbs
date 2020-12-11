@@ -14,7 +14,8 @@ class AddAvatarAndIntroductionToUsersTable extends Migration
     public function up()
     {
         Schema::table('users', function (Blueprint $table) {
-            //
+
+            //$table->string('avatar')->default('/images/avatar/default-avatar.png');
             $table->string('avatar')->default('https://cdn.learnku.com/uploads/images/201710/30/1/TrJS40Ey5k.png')->nullable();
             $table->string('introduction')->nullable();
         });
