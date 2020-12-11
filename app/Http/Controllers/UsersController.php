@@ -6,22 +6,31 @@ use Illuminate\Http\Request;
 use App\Models\User;
 use App\Http\Requests\UserRequest;
 use App\Handlers\ImageUploadHandler;
+use Auth;
 
 class UsersController extends Controller
 {
-    //
+    //使用__construct构造器方法来对除了show访问以外均要进行用户身份认证
+    public function __construct()
+    {
+        //必须引用Auth类来实现用户认证
+        $this->middleware('auth',['except' => ['show']]);
+    }
+
     public function show(User $user)
     {
         return view('users.show',compact('user'));
     }
     public function edit(User $user)
     {
+        $this->authorize('update',$user);
         return view('users.edit',compact('user'));
     }
     public function update(UserRequest $request,ImageUploadHandler $uploader, User $user)
     {
         //dd($request->avatar);
         //赋值变量，方便进行数据更新操作，
+        $this->authorize('update',$user);
         $data = $request->all();
         if ($request->avatar){
             $result = $uploader->save($request->avatar,'avatars', $user->id, 410);
