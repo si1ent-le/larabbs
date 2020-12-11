@@ -24,7 +24,7 @@ class UsersController extends Controller
         //赋值变量，方便进行数据更新操作，
         $data = $request->all();
         if ($request->avatar){
-            $result = $uploader->save($request->avatar,'avatar',$user->id);
+            $result = $uploader->save($request->avatar,'avatars', $user->id, 410);
             if($result){
                 $data['avatar'] = $result['path'];
             }
